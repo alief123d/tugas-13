@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\castController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,18 @@ Route::get('/', function () {
 Route::get('/dataTable', function(){
     return view('dataTable');
 });
+
+// Route::get('/castList', function(){
+//     return view('castList');
+// });
+
+Route::get('/castList',[castController::class, 'showcast']);
+
+Route::get('/castList/create', function(){
+    return view('menu.create');
+});
+
+Route::post('/createCast',[castController::class, 'store']);
+Route::delete('/castList/{cast}',[castController::class, 'delete']);
+Route::get('/castList/edit/{cast}',[castController::class, 'edit']);
+Route::put('/castList/{cast}',[castController::class, 'update']);

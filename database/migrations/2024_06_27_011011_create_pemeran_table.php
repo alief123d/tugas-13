@@ -18,7 +18,7 @@ class CreatePemeranTable extends Migration
             $table->unsignedBigInteger('id_cast');
             $table->unsignedBigInteger('id_film');
             $table->string('nama', 255);
-            $table->foreign('id_cast')->references('id')->on('cast');
+            $table->foreign('id_cast')->references('id')->on('casts');
             $table->foreign('id_film')->references('id')->on('film');
         });
     }
